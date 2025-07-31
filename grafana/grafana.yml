@@ -11,9 +11,6 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   sources:
-  - repoURL: https://github.com/azezej/homelab-charts.git
-    targetRevision: main
-    path: grafana
   - repoURL: https://grafana.github.io/helm-charts
     chart: grafana
     targetRevision: 6.52.2
