@@ -23,12 +23,10 @@ spec:
         persistence:
           config:
             enabled: true
-            type: hostPath
-            hostPath: "/mnt/data/jellyfin-config" 
+            existingClaim: "jellyfin-config"
           media:
             enabled: true
-            type: hostPath
-            hostPath: "/mnt/data/jellyfin-media"
+            existingClaim: "jellyfin-media"
         metrics:
           enabled: true
           serviceMonitor:
