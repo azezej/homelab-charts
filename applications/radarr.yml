@@ -11,8 +11,8 @@ spec:
     namespace: arr-stack
     server: https://kubernetes.default.svc
   project: default
-  sources:
-  - repoURL: https://k8s-home-lab.github.io/helm-charts/
+  source:
+    repoURL: https://k8s-home-lab.github.io/helm-charts/
     chart: radarr
     targetRevision: 19.7.2
     helm:

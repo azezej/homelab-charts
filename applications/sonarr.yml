@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: readarr
+  name: sonarr
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -11,9 +11,9 @@ spec:
     namespace: arr-stack
     server: https://kubernetes.default.svc
   project: default
-  sources:
-  - repoURL: https://bjw-s-labs.github.io/helm-charts/
-    chart: readarr
+  source:
+    repoURL: https://bjw-s-labs.github.io/helm-charts/
+    chart: sonarr
     targetRevision: 1.5.1
     helm:
       values: |
@@ -24,15 +24,6 @@ spec:
         ingress:
           main:
             enabled: true
-        exporter:
-          image:
-            repository: ghcr.io/onedr0p/exportarr
-            tag: v2.2.0
-            pullPolicy: IfNotPresent
-          env:
-            port: 9794
-            additionalMetrics: false 
-            unknownQueueItems: false
         persistence:
           config:
             enabled: true
@@ -48,16 +39,25 @@ spec:
           prometheusRule:
             enabled: true
             groups:
-            - name: readarr.rules
+            - name: sonarr.rules
               rules:
-              - alert: ReadarrDown
-                expr: up{job="readarr"} == 0
+              - alert: SonarrDown
+                expr: up{job="sonarr"} == 0
                 for: 5m
                 labels:
                   severity: critical
                 annotations:
-                  summary: "Readarr is down"
-                  description: "Readarr instance is not reachable."
+                  summary: "Sonarr is down"
+                  description: "Sonarr instance is not reachable."
+        exporter:
+          image:
+            repository: ghcr.io/onedr0p/exportarr
+            tag: v2.2.0
+            pullPolicy: IfNotPresent
+          env:
+            port: 9794
+            additionalMetrics: false 
+            unknownQueueItems: false  
   syncPolicy:
     automated:
       prune: true
@@ -65,4 +65,4 @@ spec:
     syncOptions:
     - CreateNamespace=true
 
-# ############################## END OF radarr.yaml ####################################
+# ############################## END OF prometheus.yaml ####################################
