@@ -44,7 +44,7 @@ spec:
   source:
     repoURL: https://github.com/azezej/homelab-charts
     targetRevision: main
-    path: prometheus-storage
+    path: applications/prometheus-storage 
   syncPolicy:
     automated:
       prune: true
