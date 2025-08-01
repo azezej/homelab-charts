@@ -18,6 +18,9 @@ spec:
     targetRevision: 19.7.2
     helm:
       values: |
+        persistence:
+          enabled: true
+          storageClass: prometheus-sc
         server:
           service:
             enabled: true
