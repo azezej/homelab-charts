@@ -18,10 +18,15 @@ spec:
     targetRevision: 19.7.2
     helm:
       values: |
-        persistentVolume:
-          enabled: true
-          existingClaim: "prometheus-server"
         server:
+          podSecurityContext:
+              runAsUser: 65534
+              runAsNonRoot: true
+              runAsGroup: 65534
+              fsGroup: 65534
+          persistentVolume:
+            enabled: true
+            existingClaim: "prometheus-server"
           service:
             enabled: true
             type: LoadBalancer
