@@ -22,7 +22,9 @@ spec:
           type: LoadBalancer
         persistence:
           config:
-            enabled: false 
+            enabled: true
+            type: hostPath
+            hostPath: "/mnt/data/jellyfin-config" 
           media:
             enabled: true
             type: hostPath
