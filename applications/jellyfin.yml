@@ -22,17 +22,11 @@ spec:
           type: LoadBalancer
         persistence:
           config:
-            enabled: true
-            accessMode: ReadWriteOnce
-            type: pvc
-            size: 1Gi
-            storageClassName: 'arr-stack-sc' 
+            enabled: false 
           media:
             enabled: true
-            accessMode: ReadWriteOnce
-            type: pvc
-            size: 100Gi
-            storageClassName: 'arr-stack-sc'
+            type: hostPath
+            hostPath: "/mnt/data/jellyfin-media"
         metrics:
           enabled: true
           serviceMonitor:
