@@ -35,30 +35,4 @@ spec:
     - CreateNamespace=true
 
 # ############################## END OF prometheus.yaml ####################################
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: prometheus-storage
-  namespace: argocd
-spec:
-  destination:
-    namespace: monitoring
-    server: https://kubernetes.default.svc
-  project: default
-  source:
-    repoURL: https://github.com/azezej/homelab-charts
-    targetRevision: main
-    path: applications/prometheus-storage 
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-    - CreateNamespace=true
-  ignoreDifferences:
-    - jsonPointers:
-      - /spec/volumeName
-      - /spec/storageClassName
-    kind: PersistentVolumeClaim
 
