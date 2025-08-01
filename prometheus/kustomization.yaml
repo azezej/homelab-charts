@@ -1,0 +1,3 @@
+resources:
+  - storageclass.yaml
+  - pvc.yaml
