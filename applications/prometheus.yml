@@ -25,6 +25,8 @@ spec:
           service:
             enabled: true
             type: LoadBalancer
+        securityContext:
+          fsGroup: 65534
   syncPolicy:
     automated:
       prune: true
@@ -54,3 +56,9 @@ spec:
       selfHeal: true
     syncOptions:
     - CreateNamespace=true
+  ignoreDifferences:
+    - jsonPointers:
+      - /spec/volumeName
+      - /spec/storageClassName
+    kind: PersistentVolumeClaim
+
