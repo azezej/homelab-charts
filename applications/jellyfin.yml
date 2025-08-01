@@ -26,13 +26,13 @@ spec:
             accessMode: ReadWriteOnce
             type: pvc
             size: 1Gi
-            storageClass: 'arr-stack-sc' 
+            storageClassName: 'arr-stack-sc' 
           media:
             enabled: true
             accessMode: ReadWriteOnce
             type: pvc
             size: 100Gi
-            storageClass: 'arr-stack-sc'
+            storageClassName: 'arr-stack-sc'
         metrics:
           enabled: true
           serviceMonitor:
