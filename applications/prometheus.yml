@@ -27,6 +27,7 @@ spec:
           persistentVolume:
             enabled: true
             existingClaim: "prometheus-server"
+            mountPath: /mnt/data/prometheus
           service:
             enabled: true
             type: LoadBalancer
