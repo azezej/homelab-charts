@@ -24,6 +24,8 @@ spec:
           config:
             enabled: true
             accessMode: ReadWriteOnce
+            type: pvc
+            size: 1Gi
             storageClass: 'arr-stack-sc' 
           media:
             enabled: true
