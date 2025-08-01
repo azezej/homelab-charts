@@ -1,3 +1,4 @@
+---
 # Description: Prometheus application for ArgoCD############################################
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -29,3 +30,24 @@ spec:
     - CreateNamespace=true
 
 # ############################## END OF prometheus.yaml ####################################
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus-storage
+  namespace: argocd
+spec:
+  destination:
+    namespace: monitoring
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/azezej/homelab-charts
+    targetRevision: main
+    path: prometheus-storage
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
