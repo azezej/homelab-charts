@@ -18,9 +18,8 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
   ignoreDifferences:
     - jsonPointers:
-      - /spec/volumeName
-      - /spec/storageClassName
-    kind: PersistentVolumeClaim
+        - /spec/volumeName
+        - /spec/storageClassName

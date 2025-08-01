@@ -26,4 +26,3 @@ spec:
   storageClassName: prometheus-sc
   hostPath:
     path: /mnt/data/alertmanager
-
