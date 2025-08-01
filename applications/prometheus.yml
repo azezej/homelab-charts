@@ -18,15 +18,22 @@ spec:
     targetRevision: 19.7.2
     helm:
       values: |
-        persistence:
+        persistentVolume:
           enabled: true
-          storageClass: prometheus-sc
+          existingClaim: "prometheus-server"
         server:
           service:
             enabled: true
             type: LoadBalancer
-        securityContext:
-          fsGroup: 65534
+        alertmanager:
+          enabled: true
+          persistence:
+            size: 2Gi
+          podSecurityContext:
+            runAsUser: 65534
+            runAsNonRoot: true
+            runAsGroup: 65534
+            fsGroup: 65534
   syncPolicy:
     automated:
       prune: true
