@@ -20,18 +20,17 @@ spec:
         service:
           enabled: true
           type: LoadBalancer
-        volumes:
-          - name: config
-            persistentVolumeClaim:
-              claimName: jellyfin-config
-          - name: media
-            persistentVolumeClaim:
-              claimName: jellyfin-media
-        volumeMounts:
-          - name: config
-            mountPath: /config
-          - name: media
-            mountPath: /media
+        persistence:
+          config:
+            enabled: true
+            accessMode: ReadWriteOnce
+            storageClass: 'arr-stack-sc' 
+          media:
+            enabled: true
+            accessMode: ReadWriteOnce
+            type: pvc
+            size: 100Gi
+            storageClass: 'arr-stack-sc'
         metrics:
           enabled: true
           serviceMonitor:
