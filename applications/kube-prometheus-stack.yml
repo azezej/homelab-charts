@@ -36,6 +36,7 @@ spec:
                     - kube-prometheus-stack
         grafana:
           enabled: true
+          defaultDashboardsTimezone: "browser"
           ingress:
             enabled: true
             ingressClassName: "nginx"
