@@ -12,10 +12,16 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: https://bjw-s-labs.github.io/helm-charts/
-    chart: radarr
-    targetRevision: 19.7.2
     helm:
+      chart: app-template
+      repoURL: https://bjw-s-labs.github.io/helm-chartsoci://ghcr.io/bjw-s/helm-charts
+      parameters:
+      - name: image.repository
+        value: ghcr.io/linuxserver/radarr
+      - name: image.tag
+        value: latest
+      - name: service.main.ports.http.port
+        value: "7878"
       values: |
         env:
           TZ: "Europe/Warsaw"
@@ -36,11 +42,11 @@ spec:
         persistence:
           config:
             enabled: true
-            existingClaim: arr-stack-pvc
+            existingClaim: "jellyfin-config"
           media:
             enabled: true
             mountPath: /media
-            existingClaim: arr-stack-pvc
+            existingClaim: "jellyfin-media"
         metrics:
           enabled: true
           serviceMonitor:
