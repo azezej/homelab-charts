@@ -23,7 +23,7 @@ spec:
           apikey: &apikey "ygHShGZ4CfmXOsCvQtfOoAdM9pkxufbhyVLAIGu1GcVoBUX57wCYNrglhI7Fbmat"
           # -- (string) Insert your storage class here, e.g.: &storageClassName network-block. Do not remove the `&storageClassName` anchor!
           # @section -- Global
-          storageClassName: &storageClassName "jellyfin-storage"
+          storageClassName: &storageClassName "nfs-csi"
           # -- (string) Insert your ingress class here, e.g.: &ingressClassName nginx. Do not remove the `&ingressCassName` anchor, and do not leave the anchor value empty, otherwise you will face a `null` value error!
           # @default -- nginx
           # @section -- Global
@@ -489,7 +489,7 @@ spec:
             name: &downloads-volume downloads-volume
             # -- Size of the downloads volume, in Kubernets format
             # @section -- Storage
-            size: 100Gi
+            size: 50Gi
           # -- configuration of the volume used for media storage (i.e.: where movies and tv shows file will be permanently stored)
           # @section -- Storage
           # @default -- See the sub fields
@@ -499,7 +499,7 @@ spec:
             name: &media-volume media-volume
             # -- Size of the media volume, in Kubernets format
             # @section -- Storage
-            size: 250Gi
+            size: 99Gi 
           # -- configuration of the volume used for qBitTorrent internal configuration
           # @section -- Storage
           # @default -- See the sub fields
