@@ -17,9 +17,15 @@ spec:
     targetRevision: 2.3.0
     helm:
       values: |
-        service:
+        ingress:
           enabled: true
-          type: LoadBalancer
+          ingressClassName: "nginx"
+          hosts:
+            - jellyfin.katedra.kys
+          tls:
+            - secretName: wildcard-katedra-tls
+              hosts:
+                - jellyfin.katedra.kys
         persistence:
           config:
             enabled: true
@@ -27,25 +33,6 @@ spec:
           media:
             enabled: true
             existingClaim: "jellyfin-media"
-        metrics:
-          enabled: true
-          serviceMonitor:
-            interval: 30s
-            scrapeTimeout: 1m
-            labels: {}
-          prometheusRule:
-            enabled: true
-            groups:
-            - name: jellyfin.rules
-              rules:
-              - alert: JellyfinDown
-                expr: up{job="jellyfin"} == 0
-                for: 5m
-                labels:
-                  severity: critical
-                annotations:
-                  summary: "Jellyfin is down"
-                  description: "Jellyfin instance is not reachable."
   syncPolicy:
     automated:
       prune: true
