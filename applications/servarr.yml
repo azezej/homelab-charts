@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: https://github.com/azezej/servarr
     path: servarr
-    targetRevision: 1.0.2
+    targetRevision: main
     helm:
       values: |
         global:
