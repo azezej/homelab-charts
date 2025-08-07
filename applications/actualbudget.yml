@@ -25,6 +25,17 @@ spec:
           url: "budget.katedra.kys" 
           annotations:
             cert-manager.io/cluster-issuer: "selfsigned-issuer"
+        replicaCount: 3
+        persistence:
+          enabled: true
+          existingClaim: "actualbudget"
+          mountPath: /data
+          storageClassName: actualbudget-storage
+          size: 1Gi
+        securityContext:
+          runAsUser: 1000
+          runAsGroup: 1000
+          fsGroup: 1000
   syncPolicy:
     automated:
       prune: true
