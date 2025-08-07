@@ -1,5 +1,6 @@
 {
     "yaml.schemas": {
-        "https://www.schemastore.org/prometheus.rules.json": "file:///home/blazej/homelab-charts/prometheus/prometheus.yml"
+        "https://www.schemastore.org/prometheus.rules.json": "file:///home/blazej/homelab-charts/prometheus/prometheus.yml",
+        "https://www.schemastore.org/prometheus.json": "file:///home/blazej/homelab-charts/applications/prometheus.yml"
     }
 }
