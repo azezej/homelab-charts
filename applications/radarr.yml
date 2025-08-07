@@ -36,6 +36,11 @@ spec:
           media:
             enabled: true
             existingClaim: jellyfin-media 
+        controller:
+          enabled: true
+          image:
+            repository: ghcr.io/linuxserver/radarr
+            tag: latest
   syncPolicy:
     automated:
       prune: true
