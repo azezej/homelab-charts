@@ -16,6 +16,15 @@ spec:
     helm:
       values: |
         prometheus:
+          ingress:
+            enabled: true
+            ingressClassName: "nginx"
+            hosts:
+              - prometheus.katedra.kys
+            tls:
+              - secretName: wildcard-katedra-tls
+                hosts:
+                  - prometheus.katedra.kys
           prometheusSpec:
             serviceMonitorSelector:
               matchExpressions:
