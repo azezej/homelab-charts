@@ -10,8 +10,8 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: oci://ghcr.io/prometheus-community/charts/
-    chart: kube-prometheus-stack
+    repoURL: oci://ghcr.io/prometheus-community/charts/kube-prometheus-stack
+    path: .
     targetRevision: 75.18.1
   syncPolicy:
     automated:
