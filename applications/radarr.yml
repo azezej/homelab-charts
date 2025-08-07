@@ -19,7 +19,7 @@ spec:
       values: |
         controllers:
           main:
-            type: Deployment
+            type: deployment
 
             containers:
               main:
