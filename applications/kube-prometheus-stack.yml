@@ -13,6 +13,52 @@ spec:
     repoURL: https://prometheus-community.github.io/helm-charts
     chart: kube-prometheus-stack
     targetRevision: 75.18.1
+    helm:
+      values: |
+        prometheus:
+          prometheusSpec:
+            serviceMonitorSelector:
+              matchExpressions:
+                - key: app.kubernetes.io/name
+                  operator: In
+                  values:
+                    - kube-prometheus-stack
+        grafana:
+          enabled: true
+          ingress:
+            enabled: true
+            ingressClassName: "nginx"
+            hosts: 
+              - grafana.katedra.kys
+            tls:
+              - secretName: wildcard-katedra-tls
+                hosts:
+                  - grafana.katedra.kys
+        alertmanager:
+          alertmanagerSpec:
+            externalUrl: https://alertmanager.katedra.kys
+          ingress:
+            enabled: true
+            ingressClassName: "nginx"
+            hosts:
+              - alertmanager.katedra.kys
+            tls:
+              - secretName: wildcard-katedra-tls
+                hosts:
+                  - alertmanager.katedra.kys
+        kubeStateMetrics:
+          enabled: true
+        nodeExporter:
+          enabled: true
+        prometheusNodeExporter:
+          enabled: true
+        prometheusOperator:
+          enabled: true
+        prometheusOperatorAdmissionWebhooks:
+          enabled: true
+        prometheusOperatorCustomResourceDefinitions:
+          create: true
+
   syncPolicy:
     automated:
       prune: true
