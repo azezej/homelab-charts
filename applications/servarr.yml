@@ -11,9 +11,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: https://fonzdm.github.io/servarr
+    repoURL: https://github.com/azezej/servarr
     chart: servarr
-    targetRevision: 1.0.2
+    targetRevision: main
     helm:
       values: |
         global:
@@ -59,7 +59,7 @@ spec:
           # -- (string) Insert Jellyfin login mail (will be used also for Jellyseerr integration)
           # @section -- Jellyfin
           # @default -- No default value
-          mail: ""
+          mail: "b.szulik@tuta.io"
           # -- (string) Insert the Jellyfin country code
           # @section -- Jellyfin
           # @default -- US
