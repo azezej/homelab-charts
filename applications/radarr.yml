@@ -32,11 +32,9 @@ spec:
         persistence:
           config:
             enabled: true
-            mountPath: /config
             existingClaim: jellyfin-config
           media:
             enabled: true
-            mountPath: /media
             existingClaim: jellyfin-media 
   syncPolicy:
     automated:
