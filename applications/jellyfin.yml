@@ -23,7 +23,8 @@ spec:
           hosts:
             - host: jellyfin.katedra.kys
               paths:
-                - /
+                - path: /
+                  pathType: ImplementationSpecific
           tls:
             - secretName: wildcard-katedra-tls
               hosts:
