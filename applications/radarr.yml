@@ -12,9 +12,12 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
+    repoURL: https://github.com/azezej/homelab-charts
+    targetRevision: HEAD
+    path: applications/radarr
     helm:
       chart: app-template
-      repoURL: https://bjw-s-labs.github.io/helm-chartsoci://ghcr.io/bjw-s/helm-charts
+      repoURL: https://bjw-s-labs.github.io/helm-charts
       parameters:
       - name: image.repository
         value: ghcr.io/linuxserver/radarr
@@ -22,74 +25,8 @@ spec:
         value: latest
       - name: service.main.ports.http.port
         value: "7878"
-      values: |
-        env:
-          TZ: "Europe/Warsaw"
-        service:
-          type: LoadBalancer
-        ingress:
-          main:
-            enabled: true
-        exporter:
-          image:
-            repository: ghcr.io/onedr0p/exportarr
-            tag: v2.2.0
-            pullPolicy: IfNotPresent
-          env:
-            port: 9793
-            additionalMetrics: false 
-            unknownQueueItems: false
-        persistence:
-          config:
-            enabled: true
-            existingClaim: "jellyfin-config"
-          media:
-            enabled: true
-            mountPath: /media
-            existingClaim: "jellyfin-media"
-        metrics:
-          enabled: true
-          serviceMonitor:
-            interval: 30s
-            scrapeTimeout: 1m
-            labels: {}
-          prometheusRule:
-            enabled: true
-            groups:
-            - name: radarr.rules
-              rules:
-              - alert: RadarrDown
-                expr: up{job="radarr"} == 0
-                for: 5m
-                labels:
-                  severity: critical
-                annotations:
-                  summary: "Radarr is down"
-                  description: "Radarr instance is not reachable."
-              - alert: RadarrHighCPUUsage
-                expr: rate(container_cpu_usage_seconds_total{job="radarr"}[5m])
-                for: 5m
-                labels:
-                  severity: warning
-                annotations:
-                  summary: "High CPU usage in Radarr"
-                  description: "Radarr is using high CPU resources."
-              - alert: RadarrHighMemoryUsage
-                expr: container_memory_usage_bytes{job="radarr"} > 500 * 1024 * 1024
-                for: 5m
-                labels:
-                  severity: warning
-                annotations:
-                  summary: "High memory usage in Radarr"
-                  description: "Radarr is using high memory resources."
-              - alert: RadarrDiskSpaceLow
-                expr: (node_filesystem_avail_bytes{job="radarr"} / node_filesystem_size_bytes{job="radarr"}) < 0.1
-                for: 5m
-                labels:
-                  severity: warning
-                annotations:
-                  summary: "Low disk space in Radarr"
-                  description: "Radarr is running low on disk space."
+      valueFiles:
+      - values.yaml
   syncPolicy:
     automated:
       prune: true
