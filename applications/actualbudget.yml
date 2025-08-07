@@ -29,9 +29,6 @@ spec:
         persistence:
           enabled: true
           existingClaim: "actualbudget-pvc"
-          mountPath: /data
-          storageClassName: actualbudget-storage
-          size: 1Gi
         securityContext:
           runAsUser: 1000
           runAsGroup: 1000
