@@ -19,9 +19,11 @@ spec:
       values: |
         ingress:
           enabled: true
-          ingressClassName: "nginx"
+          className: "nginx"
           hosts:
-            - jellyfin.katedra.kys
+            - host: jellyfin.katedra.kys
+              paths:
+                - /
           tls:
             - secretName: wildcard-katedra-tls
               hosts:
