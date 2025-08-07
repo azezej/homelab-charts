@@ -16,8 +16,12 @@ spec:
     targetRevision: 6.52.2
     helm:
       values: |
-        service:
-          type: LoadBalancer
+        ingress:
+          enabled: true
+          ingressClassName: "nginx"
+          tls: true
+          hosts: 
+            - grafana.katedra.kys
         datasources:
           datasources.yaml:
             apiVersion: 1
