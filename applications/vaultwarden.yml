@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: vaultwarden 
+  name: vaultwarden
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: password-manager 
+    namespace: password-manager
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: https://guerzon.github.io/vaultwarden 
-    chart: vaultwarden 
+    repoURL: https://guerzon.github.io/vaultwarden
+    chart: vaultwarden
     targetRevision: 0.32.4
     helm:
       values: |
@@ -21,9 +21,9 @@ spec:
         ingress:
           enabled: true
           class: "nginx"
-          hostname: vaultwarden.katedra.kys
+          hostname: https://vaultwarden.katedra.kys
           additionalHostnames:
-            - vw.katedra.kys
+            - https://vw.katedra.kys
           allowList: "10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16"
   syncPolicy:
     automated:
