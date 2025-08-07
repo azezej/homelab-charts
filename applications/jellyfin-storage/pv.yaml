@@ -6,18 +6,18 @@ spec:
   capacity:
     storage: 1Gi
   accessModes:
-    - ReadWriteOnce
-  storageClassName: manual
+  - ReadWriteOnce
+  storageClassName: jellyfin-storage
   local:
     path: /mnt/data/jellyfin-config
   nodeAffinity:
     required:
       nodeSelectorTerms:
-        - matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: In
-              values:
-                - k8s-worker-afrodyta-3.katedra.kys
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - k8s-worker-afrodyta-3.katedra.kys
   persistentVolumeReclaimPolicy: Retain
   volumeMode: Filesystem
 ---
@@ -29,17 +29,17 @@ spec:
   capacity:
     storage: 100Gi
   accessModes:
-    - ReadWriteOnce
-  storageClassName: manual
+  - ReadWriteOnce
+  storageClassName: jellyfin-storage
   local:
     path: /mnt/data/jellyfin-media
   nodeAffinity:
     required:
       nodeSelectorTerms:
-        - matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: In
-              values:
-                - k8s-worker-afrodyta-3.katedra.kys 
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - k8s-worker-afrodyta-3.katedra.kys
   persistentVolumeReclaimPolicy: Retain
   volumeMode: Filesystem

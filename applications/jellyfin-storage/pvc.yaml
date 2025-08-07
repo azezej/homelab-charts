@@ -5,11 +5,11 @@ metadata:
   namespace: arr-stack
 spec:
   accessModes:
-    - ReadWriteOnce
+  - ReadWriteOnce
   resources:
     requests:
       storage: 1Gi
-  storageClassName: manual
+  storageClassName: jellyfin-storage
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -18,9 +18,8 @@ metadata:
   namespace: arr-stack
 spec:
   accessModes:
-    - ReadWriteOnce
+  - ReadWriteOnce
   resources:
     requests:
       storage: 100Gi
-  storageClassName: manual
-
+  storageClassName: jellyfin-storage
