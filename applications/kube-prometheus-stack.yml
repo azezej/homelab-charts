@@ -27,13 +27,6 @@ spec:
               - secretName: wildcard-katedra-tls
                 hosts:
                   - prometheus.katedra.kys
-          prometheusSpec:
-            serviceMonitorSelector:
-              matchExpressions:
-                - key: app.kubernetes.io/name
-                  operator: In
-                  values:
-                    - kube-prometheus-stack
         grafana:
           enabled: true
           defaultDashboardsTimezone: "browser"
@@ -58,18 +51,10 @@ spec:
               - secretName: wildcard-katedra-tls
                 hosts:
                   - alertmanager.katedra.kys
-        kubeStateMetrics:
-          enabled: true
         nodeExporter:
-          enabled: true
-        prometheusNodeExporter:
           enabled: true
         prometheusOperator:
           enabled: true
-        prometheusOperatorAdmissionWebhooks:
-          enabled: true
-        prometheusOperatorCustomResourceDefinitions:
-          create: true
 
   syncPolicy:
     automated:
