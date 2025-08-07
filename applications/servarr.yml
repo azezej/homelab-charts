@@ -36,7 +36,7 @@ spec:
         metrics:
           # -- Anchor to set wether to deploy the export sidecar pods or not. Requires the Prometheus stack. Do not remove the `&metricsEnabled` anchor!
           # @section -- Metrics
-          enabled: &metricsEnabled true
+          enabled: &metricsEnabled false 
 
         # @ignore
         initJellyseerr: true
