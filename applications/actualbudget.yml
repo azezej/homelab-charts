@@ -28,7 +28,7 @@ spec:
         replicaCount: 3
         persistence:
           enabled: true
-          existingClaim: "actualbudget"
+          existingClaim: "actualbudget-pvc"
           mountPath: /data
           storageClassName: actualbudget-storage
           size: 1Gi
