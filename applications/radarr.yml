@@ -12,21 +12,32 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: https://github.com/azezej/homelab-charts
-    targetRevision: HEAD
-    path: applications/radarr
+    repoURL: https://bjw-s-labs.github.io/helm-charts/
+    chart: common-chart
+    targetRevision: 4.2.0
     helm:
-      chart: app-template
-      repoURL: https://bjw-s-labs.github.io/helm-charts
-      parameters:
-      - name: image.repository
-        value: ghcr.io/linuxserver/radarr
-      - name: image.tag
-        value: latest
-      - name: service.main.ports.http.port
-        value: "7878"
-      valueFiles:
-      - values.yaml
+      values: |
+        image:
+          repository: ghcr.io/linuxserver/radarr
+          tag: latest
+        service:
+          main:
+            ports:
+              http:
+                port: 7878
+        env:
+          TZ: "UTC"
+          PUID: "1000"
+          PGID: "1000"
+        persistence:
+          config:
+            enabled: true
+            mountPath: /config
+            existingClaim: jellyfin-config
+          media:
+            enabled: true
+            mountPath: /media
+            existingClaim: jellyfin-media 
   syncPolicy:
     automated:
       prune: true
