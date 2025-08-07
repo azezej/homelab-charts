@@ -17,30 +17,38 @@ spec:
     targetRevision: 4.2.0
     helm:
       values: |
-        image:
-          repository: ghcr.io/linuxserver/radarr
-          tag: latest
-        service:
+        controllers:
           main:
-            ports:
-              http:
-                port: 7878
-        env:
-          TZ: "UTC"
-          PUID: "1000"
-          PGID: "1000"
+            type: Deployment
+
+            containers:
+              main:
+                image:
+                  repository: lscr.io/linuxserver/radarr
+                  tag: latest
+              
+        ingress:
+          main:
+            className: "nginx"
+            hosts:
+              - host: radarr.katedra.kys
+                paths: 
+                  - path: /
+                    pathType: Prefix
+            tls:
+              - secretName: wildcard-katedra-tls
+                hosts:
+                  - radarr.katedra.kys
         persistence:
           config:
-            enabled: true
             existingClaim: jellyfin-config
+            globalMounts:
+              - path: /config/radarr
+          
           media:
-            enabled: true
-            existingClaim: jellyfin-media 
-        controller:
-          enabled: true
-          image:
-            repository: ghcr.io/linuxserver/radarr
-            tag: latest
+            existingClaim: jellyfin-media
+            globalMounts:
+              - path: /media/radarr
   syncPolicy:
     automated:
       prune: true
