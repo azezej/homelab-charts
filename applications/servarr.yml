@@ -666,7 +666,7 @@ spec:
             storageClass:
             probeType: http
             serviceProtocol: tcp
-            serviceType: ClusterIP
+            serviceType: LoadBalancer 
             persistenceType: pvc
             pvcRetain: false
             pvcSize: 100Gi
