@@ -26,7 +26,13 @@ spec:
                 image:
                   repository: lscr.io/linuxserver/radarr
                   tag: latest
-              
+        service:
+          main:
+            controller: main
+            type: ClusterIP
+            ports:
+              http:
+                port: 8123
         ingress:
           main:
             className: "nginx"
@@ -35,6 +41,9 @@ spec:
                 paths: 
                   - path: /
                     pathType: Prefix
+                    service: 
+                      identifier: main
+                      port: http
             tls:
               - secretName: wildcard-katedra-tls
                 hosts:
