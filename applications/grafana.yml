@@ -19,7 +19,6 @@ spec:
         ingress:
           enabled: true
           ingressClassName: "nginx"
-          tls: true
           hosts: 
             - grafana.katedra.kys
         datasources:
