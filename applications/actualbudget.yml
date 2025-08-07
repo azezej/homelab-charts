@@ -1,0 +1,35 @@
+# Description: Prometheus application for ArgoCD############################################
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: actual-budget
+  namespace: budget
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: budget
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+  - repoURL: https://kriegalex.github.io/k8s-charts/
+    chart: actual-budget
+    targetRevision: 0.2.3
+    helm:
+      values: |
+        env:
+          TZ: "Europe/Warsaw"
+        ingress:
+          enabled: true
+          ingressClassName: "nginx"
+          url: "budget.katedra.kys" 
+          annotations:
+            cert-manager.io/cluster-issuer: "selfsigned-issuer"
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+
+# ############################## END OF prometheus.yaml ####################################
