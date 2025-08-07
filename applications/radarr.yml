@@ -13,7 +13,7 @@ spec:
   project: default
   source:
     repoURL: https://bjw-s-labs.github.io/helm-charts/
-    chart: common-chart
+    chart: app-template
     targetRevision: 4.2.0
     helm:
       values: |
