@@ -21,6 +21,10 @@ spec:
           ingressClassName: "nginx"
           hosts: 
             - grafana.katedra.kys
+          tls:
+            - secretName: wildcard-katedra-tls
+              hosts:
+                - grafana.katedra.kys
         datasources:
           datasources.yaml:
             apiVersion: 1

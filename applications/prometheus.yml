@@ -28,9 +28,15 @@ spec:
             enabled: true
             existingClaim: "prometheus-server"
             mountPath: /mnt/data/prometheus
-          service:
-            enabled: true
-            type: LoadBalancer
+        ingress:
+          enabled: true
+          ingressClassName: "nginx"
+          hosts:
+            - prometheus.katedra.kys
+          tls:
+            - secretName: wildcard-katedra-tls
+              hosts:
+                - prometheus.katedra.kys 
         alertmanager:
           enabled: false 
   syncPolicy:
@@ -41,4 +47,3 @@ spec:
     - CreateNamespace=true
 
 # ############################## END OF prometheus.yaml ####################################
-
