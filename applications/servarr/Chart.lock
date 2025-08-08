@@ -1,24 +1,24 @@
 dependencies:
 - name: sonarr
   repository: oci://tccr.io/truecharts
-  version: 24.2.1
+  version: 21.2.1
 - name: radarr
   repository: oci://tccr.io/truecharts
-  version: 24.2.1
+  version: 21.2.1
 - name: prowlarr
   repository: oci://tccr.io/truecharts
-  version: 20.2.1
+  version: 16.2.1
 - name: qbittorrent
   repository: oci://tccr.io/truecharts
-  version: 23.2.1
+  version: 19.4.1
 - name: jellyseerr
   repository: oci://tccr.io/truecharts
-  version: 13.2.1
+  version: 9.5.2
 - name: jellyfin
   repository: oci://tccr.io/truecharts
   version: 21.2.1
 - name: flaresolverr
   repository: oci://tccr.io/truecharts
-  version: 16.2.1
-digest: sha256:6f7ccfcc8fd13a0f82a404ea8872f0df6c0fe94baabf3443f7e9b5624ce172f5
-generated: "2025-08-08T12:22:13.11745763+02:00"
+  version: 13.4.1
+digest: sha256:35a913ab5bb544acf2ae04a3a766c13771d8d2919f1beb333a873858116391e5
+generated: "2025-08-08T12:33:17.914698305+02:00"

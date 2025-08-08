@@ -18,25 +18,25 @@ sources:
 - https://github.com/fonzdm/servarr
 dependencies:
 - name: sonarr
-  version: "24.2.1"
+  version: "21.2.1"
   repository: "oci://tccr.io/truecharts"
 - name: radarr
-  version: "24.2.1"
+  version: "21.2.1"
   repository: "oci://tccr.io/truecharts"
 - name: prowlarr
-  version: "20.2.1"
+  version: "16.2.1"
   repository: "oci://tccr.io/truecharts"
 - name: qbittorrent
-  version: "23.2.1"
+  version: "19.4.1"
   repository: "oci://tccr.io/truecharts"
 - name: jellyseerr
-  version: "13.2.1"
+  version: "9.5.2"
   repository: "oci://tccr.io/truecharts"
 - name: jellyfin
   version: "21.2.1"
   repository: "oci://tccr.io/truecharts"
 - name: flaresolverr
-  version: "16.2.1"
+  version: "13.4.1"
   repository: "oci://tccr.io/truecharts"
 
 maintainers:
