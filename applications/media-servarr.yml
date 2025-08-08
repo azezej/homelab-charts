@@ -48,10 +48,10 @@ spec:
       source:
         repoURL: https://media-servarr.shw.al/charts
         targetRevision: '{{.targetRevision}}'
-        chart: './{{.name}}'
+        chart: '{{.name}}'
         helm:
           valueFiles:
-          - '{{.valuesFile}}'
+          - './{{.valuesFile}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: servarr
