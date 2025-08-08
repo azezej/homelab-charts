@@ -24,9 +24,9 @@ spec:
         imagePullPolicy: IfNotPresent
         env:
         - name: TORRENT_USERNAME
-          value: { ? { .Values.torrent.username } }
+          value: {{ .Values.torrent.username }}
         - name: TORRENT_PASSWORD
-          value: { ? { .Values.torrent.password } }
+          value: {{ .Values.torrent.password }}
         command:
         - "/bin/sh"
         - "-ec"
@@ -41,7 +41,7 @@ spec:
       volumes:
       - name: torrent-config-volume
         persistentVolumeClaim:
-          claimName: { ? { .Values.volumes.torrentConfig.name } }
+          claimName: {{ .Values.volumes.torrentConfig.name }}
       - name: init-script
         configMap:
           name: init-qbittorrent-python-script
