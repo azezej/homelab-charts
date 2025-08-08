@@ -11,9 +11,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: https://github.com/azezej/homelab-charts
-    path: applications/servarr
-    targetRevision: main
+    repoURL: https://github.com/fonzdm/servarr
+    path: servarr
+    targetRevision: servarr-1.0.2
     syncPolicy:
     automated:
       prune: false
