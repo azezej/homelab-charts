@@ -1,0 +1,63 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: media-servarr
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: [ "missingkey=error" ]
+  generators:
+  - list:
+      elements:
+      - name: bazarr
+        targetRevision: 0.8.3
+        valuesFile: values/media-servarr/bazarr.yaml
+      - name: flaresolverr
+        targetRevision: 0.7.3
+        valuesFile: values/media-servarr/flaresolverr.yaml
+      - name: homarr
+        targetRevision: 0.11.0
+        valuesFile: values/media-servarr/homarr.yaml
+      - name: jellyfin
+        targetRevision: 0.7.2
+        valuesFile: values/media-servarr/jellyfin.yaml
+      - name: jellyseerr
+        targetRevision: 0.5.0
+        valuesFile: values/media-servarr/jellyseerr.yaml
+      - name: lidarr
+        targetRevision: 0.13.3
+        valuesFile: values/media-servarr/lidarr.yaml
+      - name: prowlarr
+        targetRevision: 0.15.1
+        valuesFile: values/media-servarr/prowlarr.yaml
+      - name: radarr
+        targetRevision: 0.17.1
+        valuesFile: values/media-servarr/radarr.yaml
+      - name: sonarr
+        targetRevision: 0.8.4
+        valuesFile: values/media-servarr/sonarr.yaml
+      - name: transmission
+        targetRevision: 0.8.3
+        valuesFile: values/media-servarr/transmission.yaml
+  template:
+    metadata:
+      name: '{{.name}}-media-servarr'
+      namespace: argocd
+    spec:
+      project: default
+      source:
+        repoURL: https://media-servarr.shw.al/charts
+        targetRevision: '{{.targetRevision}}'
+        chart: '{{.name}}'
+        helm:
+          valueFiles:
+          - '{{.valuesFile}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: servarr
+    syncPolicy:
+      automated:
+        prune: false
+        selfHeal: true
+      syncOptions:
+      - CreateNamespace=true
