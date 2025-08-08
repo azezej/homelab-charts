@@ -51,11 +51,9 @@ WebUI\LocalHostAuth=false
 WebUI\CSRFProtection=false
 WebUI\ClickjackingProtection=false
 {{- end }}
-WebUI\Password_PBKDF2="@ByteArray(ARQ77eY1NUZaQsuDHbIMCA==:0WMRkYTUWVT9wVvdDtHAjU9b3b7uB8NR1Gur2hmQCvCDpm39Q+PsJRJPaCU51dEiz+dTzh8qbPsL8WkFljQYFQ==)"
+WebUI\Password_PBKDF2="{{`{{ torrentPassword }}`}}"
 WebUI\UseUPnP=false
-WebUI\Username="admin"
-WebUI\AuthSubnetWhitelist=10.0.0.0/8
-WebUI\AuthSubnetWhitelistEnabled=true
+WebUI\Username={{`{{ torrentUsername }}`}}
 
 [RSS]
 AutoDownloader\DownloadRepacks=true

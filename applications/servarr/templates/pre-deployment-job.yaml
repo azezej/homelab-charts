@@ -19,25 +19,25 @@ spec:
     spec:
       restartPolicy: Never
       containers:
-      - name: qbt-config-injector
-        image: dinutac/jinja2docker:2.1.8
-        imagePullPolicy: IfNotPresent
-        env:
-        - name: TORRENT_USERNAME
-          value: {{ .Values.torrent.username }}
-        - name: TORRENT_PASSWORD
-          value: {{ .Values.torrent.password }}
-        command:
-        - "/bin/sh"
-        - "-ec"
-        args:
-        - "python3 -u /tmp/init-qbittorrent.py 2>&1;"
-        volumeMounts:
-        - name: torrent-config-volume
-          mountPath: /mnt
-        - name: init-script
-          mountPath: /tmp/init-qbittorrent.py
-          subPath: init-qbittorrent.py
+        - name: qbt-config-injector
+          image: dinutac/jinja2docker:2.1.8
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: TORRENT_USERNAME
+              value: {{ .Values.torrent.username }}
+            - name: TORRENT_PASSWORD
+              value: {{ .Values.torrent.password }}
+          command:
+            - "/bin/sh"
+            - "-ec"
+          args:
+            - "python3 -u /tmp/init-qbittorrent.py 2>&1;"
+          volumeMounts:
+            - name: torrent-config-volume
+              mountPath: /mnt
+            - name: init-script
+              mountPath: /tmp/init-qbittorrent.py
+              subPath: init-qbittorrent.py 
       volumes:
       - name: torrent-config-volume
         persistentVolumeClaim:
@@ -45,7 +45,7 @@ spec:
       - name: init-script
         configMap:
           name: init-qbittorrent-python-script
-          defaultMode: 0555 
+          defaultMode: 0644
           # items:
           # - key: qBittorrent.conf
           #   path: qBittorrent.conf
