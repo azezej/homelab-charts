@@ -22,6 +22,16 @@ spec:
     - CreateNamespace=true
     helm:
       values: |
+        addons:
+          gluetun:
+            enabled: true
+            type: ClusterIP
+            ports:
+              gluetun:
+                enabled: true
+                port: 8000
+                targetPort: 8000
+                protocol: http
         global:
           # -- (string) Insert your Prowlarr, Sonarr, Radarr API key here (one to rule them all!). Do not remove the `&apikey` anchor!
           # @default -- No default value is configured for security reasons
