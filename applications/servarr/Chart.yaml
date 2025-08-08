@@ -27,7 +27,7 @@ dependencies:
   version: "20.2.1"
   repository: "oci://tccr.io/truecharts"
 - name: qbittorrent
-  version: "19.4.1"
+  version: "23.2.1"
   repository: "oci://tccr.io/truecharts"
 - name: jellyseerr
   version: "13.2.1"
