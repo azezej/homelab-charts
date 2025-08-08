@@ -46,6 +46,6 @@ spec:
         configMap:
           name: init-qbittorrent-python-script
           defaultMode: 644
-          items:
-          - key: qBittorrent.conf
-            path: qBittorrent.conf
+          # items:
+          # - key: qBittorrent.conf
+          #   path: qBittorrent.conf

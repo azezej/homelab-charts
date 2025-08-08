@@ -55,7 +55,7 @@ torrent:
   # -- (string) username of the qBitTorrent admin user
   # @section -- Torrent
   # @default -- No default value
-  username: root
+  username: admin
   # -- (string) password of the qBitTorrent admin user. Must be at least of 8 characters.
   # @section -- Torrent
   # @default -- No default value
