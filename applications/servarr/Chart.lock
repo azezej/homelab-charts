@@ -10,7 +10,7 @@ dependencies:
   version: 20.2.1
 - name: qbittorrent
   repository: oci://tccr.io/truecharts
-  version: 19.4.1
+  version: 23.2.1
 - name: jellyseerr
   repository: oci://tccr.io/truecharts
   version: 13.2.1
@@ -20,5 +20,5 @@ dependencies:
 - name: flaresolverr
   repository: oci://tccr.io/truecharts
   version: 16.2.1
-digest: sha256:fb4cb3e1ec1b4c3781e80ddd07a047ef44e01e4d02395e55380e8e03a6be4800
-generated: "2025-08-08T11:54:47.891294733+02:00"
+digest: sha256:6f7ccfcc8fd13a0f82a404ea8872f0df6c0fe94baabf3443f7e9b5624ce172f5
+generated: "2025-08-08T12:22:13.11745763+02:00"
