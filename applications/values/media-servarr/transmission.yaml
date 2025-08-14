@@ -7,7 +7,7 @@ fullnameOverride: ''
 #
 secrets:
 - name: 'rpcPassword'
-  value: 'wYVrR766XAzLLPrJtPYS8hQ4WCLbItXM'
+  value: 'ygHShGZ4CfmXOsCvQtfOoAdM9pkxufbhyVLAIGu1GcVoBUX57wCYNrglhI7Fbmat'
 
 #
 # Application Config
@@ -177,3 +177,12 @@ service:
 
 ingress:
   enabled: true
+  hosts:
+  - "transmission.katedra.cc"
+  - "transmission.katedra.kys"
+  tls:
+    enabled: true
+    hosts:
+    - "transmission.katedra.cc"
+    - "transmission.katedra.kys"
+    secretName: 'wildcard-katedra-tls'

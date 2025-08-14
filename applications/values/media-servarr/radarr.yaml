@@ -88,6 +88,15 @@ persistentVolumeClaims:
 
 ingress:
   enabled: true
+  hosts:
+  - "radarr.katedra.cc"
+  - "radarr.katedra.kys"
+  tls:
+    enabled: true
+    hosts:
+    - "radarr.katedra.cc"
+    - "radarr.katedra.kys"
+    secretName: 'wildcard-katedra-tls'
 
 metrics:
   enabled: true

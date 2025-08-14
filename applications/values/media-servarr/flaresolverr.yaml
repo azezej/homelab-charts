@@ -43,9 +43,14 @@ service:
 
 ingress:
   enabled: true
-  host: "flaresolverr.katedra.cc"
+  hosts:
+  - "flaresolverr.katedra.cc"
+  - "flaresolverr.katedra.kys"
   tls:
     enabled: true
+    hosts:
+    - "flaresolverr.katedra.cc"
+    - "flaresolverr.katedra.kys"
     secretName: 'wildcard-katedra-tls'
 
 # metrics:

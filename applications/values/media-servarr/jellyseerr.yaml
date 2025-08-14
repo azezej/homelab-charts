@@ -48,4 +48,12 @@ persistentVolumeClaims:
 
 ingress:
   enabled: true
-  host: 'jellyseerr.katedra.kys'
+  hosts:
+  - "jellyseerr.katedra.cc"
+  - "jellyseerr.katedra.kys"
+  tls:
+    enabled: true
+    hosts:
+    - "jellyseerr.katedra.cc"
+    - "jellyseerr.katedra.kys"
+    secretName: 'wildcard-katedra-tls'

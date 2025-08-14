@@ -50,4 +50,12 @@ persistentVolumeClaims:
 
 ingress:
   enabled: true
-  path: '/'
+  hosts:
+  - "homarr.katedra.cc"
+  - "homarr.katedra.kys"
+  tls:
+    enabled: true
+    hosts:
+    - "homarr.katedra.cc"
+    - "homarr.katedra.kys"
+    secretName: 'wildcard-katedra-tls'

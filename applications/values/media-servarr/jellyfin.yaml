@@ -94,6 +94,15 @@ persistentVolumeClaims:
 
 ingress:
   enabled: true
+  hosts:
+  - "jellyfin.katedra.cc"
+  - "jellyfin.katedra.kys"
+  tls:
+    enabled: true
+    hosts:
+    - "jellyfin.katedra.cc"
+    - "jellyfin.katedra.kys"
+    secretName: 'wildcard-katedra-tls'
 
 # Metrics are enable within config - add <EnableMetrics>true</EnableMetrics> to /config/config/system.xml
 # metrics:
