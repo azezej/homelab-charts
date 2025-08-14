@@ -92,7 +92,6 @@ ingress:
   - "radarr.katedra.cc"
   - "radarr.katedra.kys"
   tls:
-    enabled: true
     hosts:
     - "radarr.katedra.cc"
     - "radarr.katedra.kys"

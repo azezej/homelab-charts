@@ -47,7 +47,6 @@ ingress:
   - "flaresolverr.katedra.cc"
   - "flaresolverr.katedra.kys"
   tls:
-    enabled: true
     hosts:
     - "flaresolverr.katedra.cc"
     - "flaresolverr.katedra.kys"

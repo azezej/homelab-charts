@@ -93,7 +93,6 @@ ingress:
   - "sonarr.katedra.cc"
   - "sonarr.katedra.kys"
   tls:
-    enabled: true
     hosts:
     - "sonarr.katedra.cc"
     - "sonarr.katedra.kys"

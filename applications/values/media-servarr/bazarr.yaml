@@ -107,7 +107,6 @@ ingress:
   - "bazarr.katedra.cc"
   - "bazarr.katedra.kys"
   tls:
-    enabled: true
     hosts:
     - "bazarr.katedra.cc"
     - "bazarr.katedra.kys"

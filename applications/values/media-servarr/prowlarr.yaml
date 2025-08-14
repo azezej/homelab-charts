@@ -77,7 +77,6 @@ ingress:
   - "prowlarr.katedra.cc"
   - "prowlarr.katedra.kys"
   tls:
-    enabled: true
     hosts:
     - "prowlarr.katedra.cc"
     - "prowlarr.katedra.kys"

@@ -52,7 +52,6 @@ ingress:
   - "jellyseerr.katedra.cc"
   - "jellyseerr.katedra.kys"
   tls:
-    enabled: true
     hosts:
     - "jellyseerr.katedra.cc"
     - "jellyseerr.katedra.kys"

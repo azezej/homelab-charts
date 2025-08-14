@@ -98,7 +98,6 @@ ingress:
   - "jellyfin.katedra.cc"
   - "jellyfin.katedra.kys"
   tls:
-    enabled: true
     hosts:
     - "jellyfin.katedra.cc"
     - "jellyfin.katedra.kys"

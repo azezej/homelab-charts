@@ -181,7 +181,6 @@ ingress:
   - "transmission.katedra.cc"
   - "transmission.katedra.kys"
   tls:
-    enabled: true
     hosts:
     - "transmission.katedra.cc"
     - "transmission.katedra.kys"

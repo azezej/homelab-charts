@@ -54,7 +54,6 @@ ingress:
   - "homarr.katedra.cc"
   - "homarr.katedra.kys"
   tls:
-    enabled: true
     hosts:
     - "homarr.katedra.cc"
     - "homarr.katedra.kys"

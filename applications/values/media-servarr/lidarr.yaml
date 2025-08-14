@@ -93,7 +93,6 @@ ingress:
   - "lidarr.katedra.cc"
   - "lidarr.katedra.kys"
   tls:
-    enabled: true
     hosts:
     - "lidarr.katedra.cc"
     - "lidarr.katedra.kys"
