@@ -49,8 +49,12 @@ persistentVolumeClaims:
 ingress:
   enabled: true
   className: 'nginx'
+  host: jellyseerr.katedra.cc
+  path: /
+  pathType: Prefix
+  port: 5055
   tls:
-    hosts:
-    - "jellyseerr.katedra.cc"
-    - "jellyseerr.katedra.kys"
-    secretName: 'wildcard-katedra-tls'
+  - hosts:
+    - jellyseerr.katedra.cc
+    - jellyseerr.katedra.kys
+    secretName: wildcard-katedra-tls

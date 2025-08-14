@@ -51,8 +51,12 @@ persistentVolumeClaims:
 ingress:
   enabled: true
   className: 'nginx'
+  host: homarr.katedra.cc
+  path: /
+  pathType: Prefix
+  port: 7575
   tls:
-    hosts:
-    - "homarr.katedra.cc"
-    - "homarr.katedra.kys"
-    secretName: 'wildcard-katedra-tls'
+  - hosts:
+    - homarr.katedra.cc
+    - homarr.katedra.kys
+    secretName: wildcard-katedra-tls

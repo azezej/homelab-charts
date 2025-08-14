@@ -74,17 +74,21 @@ persistentVolumeClaims:
 ingress:
   enabled: true
   className: 'nginx'
+  host: prowlarr.katedra.cc
+  path: /
+  pathType: Prefix
+  port: 9696
   tls:
-    hosts:
-    - "prowlarr.katedra.cc"
-    - "prowlarr.katedra.kys"
-    secretName: 'wildcard-katedra-tls'
+  - hosts:
+    - prowlarr.katedra.cc
+    - prowlarr.katedra.kys
+    secretName: wildcard-katedra-tls
 
 metrics:
   enabled: true
   app: 'prowlarr'
   port:
-    number: 9703
+    number: 9705
   env:
     # - name: 'PROWLARR__BACKFILL'
     #   value: 'true'

@@ -104,14 +104,18 @@ persistentVolumeClaims:
 ingress:
   enabled: true
   className: 'nginx'
+  host: bazarr.katedra.cc
+  path: /
+  pathType: Prefix
+  port: 6767
   tls:
-    hosts:
-    - "bazarr.katedra.cc"
-    - "bazarr.katedra.kys"
-    secretName: 'wildcard-katedra-tls'
+  - hosts:
+    - bazarr.katedra.cc
+    - bazarr.katedra.kys
+    secretName: wildcard-katedra-tls
 
 metrics:
-  enabled: false
+  enabled: true
   app: 'bazarr'
   port:
     number: 9700

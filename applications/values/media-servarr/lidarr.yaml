@@ -7,7 +7,7 @@ fullnameOverride: ''
 #
 secrets:
 - name: 'apiKey'
-  value: '1efb4202f9ad9007e2a0744214ac375a'
+  value: 'wYVrR766XAzLLPrJtPYS8hQ4WCLbItXM'
 
 #
 # Application Config
@@ -90,14 +90,18 @@ persistentVolumeClaims:
 ingress:
   enabled: true
   className: 'nginx'
+  host: lidarr.katedra.cc
+  path: /
+  pathType: Prefix
+  port: 8686
   tls:
-    hosts:
-    - "lidarr.katedra.cc"
-    - "lidarr.katedra.kys"
-    secretName: 'wildcard-katedra-tls'
+  - hosts:
+    - lidarr.katedra.cc
+    - lidarr.katedra.kys
+    secretName: wildcard-katedra-tls
 
 metrics:
   enabled: true
   app: 'lidarr'
   port:
-    number: 9702
+    number: 9704

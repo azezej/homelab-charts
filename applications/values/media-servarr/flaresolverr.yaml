@@ -44,11 +44,15 @@ service:
 ingress:
   enabled: true
   className: 'nginx'
+  host: flaresolverr.katedra.cc
+  path: /
+  pathType: Prefix
+  port: 8191
   tls:
-    hosts:
-    - "flaresolverr.katedra.cc"
-    - "flaresolverr.katedra.kys"
-    secretName: 'wildcard-katedra-tls'
+  - hosts:
+    - flaresolverr.katedra.cc
+    - flaresolverr.katedra.kys
+    secretName: wildcard-katedra-tls
 
 # metrics:
 # Metrics are enabled with environment variables in deployment.env

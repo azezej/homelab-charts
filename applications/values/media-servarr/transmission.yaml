@@ -178,8 +178,18 @@ service:
 ingress:
   enabled: true
   className: 'nginx'
+  host: transmission.katedra.cc
+  path: /
+  pathType: Prefix
+  port: 9091
   tls:
-    hosts:
-    - "transmission.katedra.cc"
-    - "transmission.katedra.kys"
-    secretName: 'wildcard-katedra-tls'
+  - hosts:
+    - transmission.katedra.cc
+    - transmission.katedra.kys
+    secretName: wildcard-katedra-tls
+
+metrics:
+  enabled: true
+  app: 'transmission'
+  port:
+    number: 9708

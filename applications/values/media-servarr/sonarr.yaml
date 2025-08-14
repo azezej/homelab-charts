@@ -104,4 +104,4 @@ metrics:
   enabled: true
   app: 'sonarr'
   port:
-    number: 9706
+    number: 9707

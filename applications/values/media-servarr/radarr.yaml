@@ -89,14 +89,18 @@ persistentVolumeClaims:
 ingress:
   enabled: true
   className: 'nginx'
+  host: radarr.katedra.cc
+  path: /
+  pathType: Prefix
+  port: 7878
   tls:
-    hosts:
-    - "radarr.katedra.cc"
-    - "radarr.katedra.kys"
-    secretName: 'wildcard-katedra-tls'
+  - hosts:
+    - radarr.katedra.cc
+    - radarr.katedra.kys
+    secretName: wildcard-katedra-tls
 
 metrics:
   enabled: true
   app: 'radarr'
   port:
-    number: 9704
+    number: 9706

@@ -95,12 +95,21 @@ persistentVolumeClaims:
 ingress:
   enabled: true
   className: 'nginx'
+  host: jellyfin.katedra.cc
+  path: /
+  pathType: Prefix
+  port: 8096
   tls:
-    hosts:
-    - "jellyfin.katedra.cc"
-    - "jellyfin.katedra.kys"
-    secretName: 'wildcard-katedra-tls'
+  - hosts:
+    - jellyfin.katedra.cc
+    - jellyfin.katedra.kys
+    secretName: wildcard-katedra-tls
 
 # Metrics are enable within config - add <EnableMetrics>true</EnableMetrics> to /config/config/system.xml
 # metrics:
 #   enabled: false
+metrics:
+  enabled: true
+  app: 'jellyfin'
+  port:
+    number: 9703
