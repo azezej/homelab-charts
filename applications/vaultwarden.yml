@@ -25,6 +25,8 @@ spec:
           hostname: vaultwarden.katedra.kys
           additionalHostnames:
             - vw.katedra.kys
+            - vaultwarden.katedra.cc
+            - vw.katedra.cc
           allowList: "10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16"
   syncPolicy:
     automated:

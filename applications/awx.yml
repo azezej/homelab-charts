@@ -1,0 +1,22 @@
+# Description: AWX application for ArgoCD############################################
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: awx
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://ansible-community.github.io/awx-operator-helm/
+    targetRevision: 2.19.1
+    chart: awx-operator
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: awx
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=true
