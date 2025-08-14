@@ -6,11 +6,11 @@ nameOverride: 'bazarr'
 #
 secrets:
 - name: 'apiKey'
-  value: 'wYVrR766XAzLLPrJtPYS8hQ4WCLbItXM'
+  value: '1efb4202f9ad9007e2a0744214ac375a'
 - name: 'sonarrApiKey'
-  value: 'wYVrR766XAzLLPrJtPYS8hQ4WCLbItXM'
+  value: '1efb4202f9ad9007e2a0744214ac375a'
 - name: 'radarrApiKey'
-  value: 'wYVrR766XAzLLPrJtPYS8hQ4WCLbItXM'
+  value: '1efb4202f9ad9007e2a0744214ac375a'
 
 #
 # Application Config
