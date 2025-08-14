@@ -90,7 +90,6 @@ persistentVolumeClaims:
 ingress:
   enabled: true
   className: 'nginx'
-  host: "lidarr.katedra.cc"
   tls:
     hosts:
     - "lidarr.katedra.cc"
