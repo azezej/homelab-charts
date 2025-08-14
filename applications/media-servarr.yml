@@ -43,7 +43,7 @@ spec:
         helm:
           valueFiles:
           - $values/media-servarr/{{.name}}.yaml
-      - repoURL: https://giithub.com/azezej/homelab-charts
+      - repoURL: https://github.com/azezej/homelab-charts
         ref: values
         targetRevision: main
         path: 'applications/values'
