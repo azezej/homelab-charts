@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgres-operator
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: pgoperator
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+  - repoURL: https://opensource.zalando.com/postgres-operator/charts/postgres-operator
+    chart: postgres-operator
+    targetRevision: 1.14.0
+  - repoURL: https://opensource.zalando.com/postgres-operator/charts/postgres-operator-ui
+    chart: postgres-operator-ui
+    targetRevision: 1.14.0
+    helm:
+      values: |
+        ingress:
+          enabled: true
+          ingressClassName: nginx
+          hosts:
+            - host: postgres-operator.katedra.cc
+              paths: ["/"]
+            - host: postgres-operator.katedra.kys
+              paths: ["/"]
+          tls:
+            - secretName: wildcard-katedra-tls
+              hosts:
+                - postgres-operator.katedra.cc
+                - postgres-operator.katedra.kys
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
