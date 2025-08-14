@@ -6,7 +6,7 @@ nameOverride: 'homarr'
 #
 application:
   # Main application web UI port
-  port: 3000
+  port: 7575
 
 #
 # Resource - DEPLOYMENT
@@ -56,11 +56,10 @@ ingress:
   host: homarr.katedra.cc
   path: /
   pathType: Prefix
-  port: 3000
+  port: 7575
   tls:
   - hosts:
     - homarr.katedra.cc
-    - homarr.katedra.kys
     secretName: katedra.cc
 
 metrics:
