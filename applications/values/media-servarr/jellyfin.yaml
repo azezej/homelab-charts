@@ -78,20 +78,28 @@ persistentVolumeClaims:
   jellyfin-config:
     accessMode: 'ReadWriteOnce'
     requestStorage: '512Mi'
+    storageClassName: 'jellyfin-sc'
     selector: {}
   jellyfin-ebooks:
     accessMode: 'ReadWriteOnce'
     requestStorage: '10Gi'
+    storageClassName: 'jellyfin-sc'
     selector: {}
   jellyfin-film:
     accessMode: 'ReadWriteOnce'
     requestStorage: '20Gi'
+    storageClassName: 'jellyfin-sc'
+    selector: {}
   jellyfin-music:
     accessMode: 'ReadWriteOnce'
     requestStorage: '1Gi'
+    storageClassName: 'jellyfin-sc'
+    selector: {}
   jellyfin-television:
     accessMode: 'ReadWriteOnce'
     requestStorage: '1Gi'
+    storageClassName: 'jellyfin-sc'
+    selector: {}
 
 ingress:
   enabled: true
