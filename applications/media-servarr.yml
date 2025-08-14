@@ -36,9 +36,9 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://media-servarr.shw.al/charts
-        targetRevision: '{{.targetRevision}}'
-        path: '{{ .name }}'
+        repoURL: https://github.com/drinkataco/media-servarr
+        targetRevision: main
+        path: 'charts/{{ .name }}'
         helm:
           valueFiles:
           - 'applications/values/media-servarr/{{.name}}.yaml'
