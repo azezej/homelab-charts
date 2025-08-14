@@ -35,13 +35,21 @@ spec:
       namespace: argocd
     spec:
       project: default
-      source:
+      sources:
+      - chart: '{{ .name }}'
         repoURL: https://github.com/drinkataco/media-servarr
         targetRevision: main
         path: 'charts/{{ .name }}'
         helm:
           valueFiles:
-          - 'applications/values/media-servarr/{{.name}}.yaml'
+          - $values/media-servarr/{{.name}}.yaml
+      - repoURL: https://giithub.com/azezej/homelab-charts
+        ref: values
+        targetRevision: main
+        path: 'applications/values'
+        directory:
+          recurse: true
+          include: "*.yaml,*.yml"
       destination:
         server: https://kubernetes.default.svc
         namespace: servarr
@@ -51,3 +59,4 @@ spec:
         selfHeal: true
       syncOptions:
       - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true
