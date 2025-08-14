@@ -90,11 +90,15 @@ persistentVolumeClaims:
 ingress:
   enabled: true
   className: 'nginx'
+  host: sonarr.katedra.cc
+  path: /
+  pathType: Prefix
+  port: 8989
   tls:
-    hosts:
-    - "sonarr.katedra.cc"
-    - "sonarr.katedra.kys"
-    secretName: 'wildcard-katedra-tls'
+  - hosts:
+    - sonarr.katedra.cc
+    - sonarr.katedra.kys
+    secretName: wildcard-katedra-tls
 
 metrics:
   enabled: true
