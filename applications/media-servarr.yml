@@ -38,7 +38,7 @@ spec:
       source:
         repoURL: https://media-servarr.shw.al/charts
         targetRevision: '{{.targetRevision}}'
-        chart: '{{.name}}'
+        path: charts/{{.name}}
         helm:
           valueFiles:
           - 'applications/values/media-servarr/{{.name}}.yaml'
