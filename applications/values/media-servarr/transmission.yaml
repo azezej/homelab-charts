@@ -159,12 +159,17 @@ deployment:
       persistentVolumeClaim:
         claimName: 'transmission-config'
     downloads:
-
+      persistentVolumeClaim:
+        claimName: 'transmission-downloads'
 
 persistentVolumeClaims:
   transmission-config:
     accessMode: 'ReadWriteOnce'
     requestStorage: '1Gi'
+    selector: {}
+  transmission-downloads:
+    accessMode: 'ReadWriteOnce'
+    requestStorage: '10Gi'
     selector: {}
 
 service:
