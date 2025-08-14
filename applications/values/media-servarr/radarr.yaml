@@ -88,9 +88,8 @@ persistentVolumeClaims:
 
 ingress:
   enabled: true
-  hosts:
-  - "radarr.katedra.cc"
-  - "radarr.katedra.kys"
+  className: 'nginx'
+  host: "radarr.katedra.cc"
   tls:
     hosts:
     - "radarr.katedra.cc"

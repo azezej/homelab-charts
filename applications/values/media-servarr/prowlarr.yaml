@@ -73,15 +73,13 @@ persistentVolumeClaims:
 
 ingress:
   enabled: true
-  hosts:
-  - "prowlarr.katedra.cc"
-  - "prowlarr.katedra.kys"
+  className: 'nginx'
+  host: "prowlarr.katedra.cc"
   tls:
     hosts:
     - "prowlarr.katedra.cc"
     - "prowlarr.katedra.kys"
     secretName: 'wildcard-katedra-tls'
-
 metrics:
   enabled: false
   app: 'prowlarr'

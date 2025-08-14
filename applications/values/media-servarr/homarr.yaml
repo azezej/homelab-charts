@@ -50,9 +50,8 @@ persistentVolumeClaims:
 
 ingress:
   enabled: true
-  hosts:
-  - "homarr.katedra.cc"
-  - "homarr.katedra.kys"
+  className: 'nginx'
+  host: "homarr.katedra.cc"
   tls:
     hosts:
     - "homarr.katedra.cc"

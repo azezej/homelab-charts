@@ -43,9 +43,8 @@ service:
 
 ingress:
   enabled: true
-  hosts:
-  - "flaresolverr.katedra.cc"
-  - "flaresolverr.katedra.kys"
+  className: 'nginx'
+  host: "flaresolverr.katedra.cc"
   tls:
     hosts:
     - "flaresolverr.katedra.cc"

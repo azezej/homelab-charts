@@ -103,9 +103,8 @@ persistentVolumeClaims:
 
 ingress:
   enabled: true
-  hosts:
-  - "bazarr.katedra.cc"
-  - "bazarr.katedra.kys"
+  className: 'nginx'
+  host: "bazarr.katedra.cc"
   tls:
     hosts:
     - "bazarr.katedra.cc"

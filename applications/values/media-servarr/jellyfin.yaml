@@ -94,9 +94,8 @@ persistentVolumeClaims:
 
 ingress:
   enabled: true
-  hosts:
-  - "jellyfin.katedra.cc"
-  - "jellyfin.katedra.kys"
+  className: 'nginx'
+  host: "jellyfin.katedra.cc"
   tls:
     hosts:
     - "jellyfin.katedra.cc"
