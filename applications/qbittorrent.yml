@@ -23,6 +23,18 @@ spec:
             storageClass: "nfs-csi"
             retain: true
             accessMode: ReadWriteOnce
+        service:
+        main:
+          ports:
+            http:
+              port: 8080
+        bittorrent:
+          enabled: true 
+          ports:
+            bittorrent:
+              enabled: true
+              port: 6881
+              protocol: TCP
         ingress:
           main:
             enabled: true
