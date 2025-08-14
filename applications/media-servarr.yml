@@ -41,11 +41,11 @@ spec:
         targetRevision: '{{ .targetRevision }}'
         helm:
           valueFiles:
-          - $values/media-servarr/{{.name}}.yaml
+          - $values/{{.name}}.yaml
       - repoURL: https://github.com/azezej/homelab-charts
         ref: values
         targetRevision: main
-        path: 'applications/values'
+        path: 'applications/values/media-servarr'
         directory:
           recurse: true
           include: "*.yaml,*.yml"
