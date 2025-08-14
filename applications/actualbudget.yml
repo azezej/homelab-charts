@@ -22,9 +22,12 @@ spec:
         ingress:
           enabled: true
           ingressClassName: "nginx"
-          url: "budget.katedra.kys" 
-          annotations:
-            cert-manager.io/cluster-issuer: "selfsigned-issuer"
+          url: "budget.katedra.cc" 
+          tls:
+            enabled: true
+            secretName: katedra.cc
+            - hosts:
+              - budget.katedra.cc
         replicaCount: 3
         persistence:
           enabled: true

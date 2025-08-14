@@ -27,8 +27,6 @@ spec:
         targetRevision: 0.17.1
       - name: sonarr
         targetRevision: 0.8.4
-      - name: transmission
-        targetRevision: 0.8.3
   template:
     metadata:
       name: '{{.name}}-media-servarr'

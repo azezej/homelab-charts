@@ -1,0 +1,44 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: qbittorrent
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: servarr
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://charts.gabe565.com
+    chart: qbittorrent
+    targetRevision: 0.4.1
+    helm:
+      values: |
+        persistence:
+          config:
+            enabled: true
+            size: 1Gi
+            storageClass: 'nfs-sci'
+        ingress:
+          main:
+            enabled: true
+            className: nginx
+            hosts: 
+              - qbittorrent.katedra.cc
+                paths:
+                  - path: /
+            tls:
+              - secretName: katedra.cc
+                hosts:
+                  - qbittorrent.katedra.cc
+        env:
+          TZ: 'Europe/Warsaw'
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
