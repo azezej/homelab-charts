@@ -1,0 +1,26 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jellyfin-storage
+  namespace: argocd
+spec:
+  destination:
+    namespace: budget
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/azezej/homelab-charts
+    targetRevision: main
+    path: applications/jellyfin-storage
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+  ignoreDifferences:
+  - jsonPointers:
+    - /spec/volumeName
+    - /spec/storageClassName
+    kind: PersistentVolumeClaim
