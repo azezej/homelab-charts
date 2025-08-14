@@ -38,13 +38,13 @@ spec:
         ingress:
           main:
             enabled: true
-            className: nginx
+            ingressClassName: nginx
             hosts: 
               - host: qbittorrent.katedra.cc
                 paths:
                   - path: /
                     pathType: Prefix
-                    port: 8080
+                    port: http 
             tls:
               - secretName: katedra.cc
                 hosts:
