@@ -112,7 +112,7 @@ ingress:
   - hosts:
     - jellyfin.katedra.cc
     - jellyfin.katedra.kys
-    secretName: wildcard-katedra-tls
+    secretName: katedra.cc
 
 # Metrics are enable within config - add <EnableMetrics>true</EnableMetrics> to /config/config/system.xml
 # metrics:
