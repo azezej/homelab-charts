@@ -7,7 +7,7 @@ fullnameOverride: ''
 #
 secrets:
 - name: 'apiKey'
-  value: 'ygHShGZ4CfmXOsCvQtfOoAdM9pkxufbhyVLAIGu1GcVoBUX57wCYNrglhI7Fbmat'
+  value: 'wYVrR766XAzLLPrJtPYS8hQ4WCLbItXM'
 
 #
 # Application Config
@@ -55,7 +55,6 @@ deployment:
       value: '1000'
     - name: 'PUID'
       value: '1000'
-
     # Additional volumeMounts on the output Deployment definition.
     volumeMounts:
     - name: 'config'
