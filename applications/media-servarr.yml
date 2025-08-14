@@ -38,7 +38,7 @@ spec:
       sources:
       - chart: '{{ .name }}'
         repoURL: https://github.com/drinkataco/media-servarr
-        targetRevision: main
+        targetRevision: '{{ .targetRevision }}'
         path: 'charts/{{ .name }}'
         helm:
           valueFiles:
