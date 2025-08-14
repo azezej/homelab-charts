@@ -26,7 +26,7 @@ deployment:
     - name: 'PROMETHEUS_ENABLED'
       value: '1'
     - name: 'PROMETHEUS_PORT'
-      value: '9702'
+      value: '9701'
     - name: 'TZ'
       value: 'Europe/Warsaw'
     - name: 'LOG_LEVEL'
@@ -52,7 +52,7 @@ ingress:
   - hosts:
     - flaresolverr.katedra.cc
     - flaresolverr.katedra.kys
-    secretName: wildcard-katedra-tls
+    secretName: katedra.cc
 
 # metrics:
 # Metrics are enabled with environment variables in deployment.env

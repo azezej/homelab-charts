@@ -25,13 +25,10 @@ spec:
           hosts:
             - host: postgres-operator.katedra.cc
               paths: ["/"]
-            - host: postgres-operator.katedra.kys
-              paths: ["/"]
           tls:
-            - secretName: wildcard-katedra-tls
+            - secretName: katedra.cc
               hosts:
                 - postgres-operator.katedra.cc
-                - postgres-operator.katedra.kys
   syncPolicy:
     automated:
       prune: true

@@ -16,16 +16,14 @@ spec:
     targetRevision: 0.32.4
     helm:
       values: |
-        domain: "https://vaultwarden.katedra.kys"
+        domain: "https://vaultwarden.katedra.cc"
         ingress:
           enabled: true
           class: "nginx"
           nginxIngressAnnotations: true
-          tlsSecret: wildcard-katedra-tls
-          hostname: vaultwarden.katedra.kys
+          tlsSecret: katedra.cc
+          hostname: vaultwarden.katedra.cc
           additionalHostnames:
-            - vw.katedra.kys
-            - vaultwarden.katedra.cc
             - vw.katedra.cc
           allowList: "10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16"
   syncPolicy:

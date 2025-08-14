@@ -195,7 +195,7 @@ ingress:
   - hosts:
     - transmission.katedra.cc
     - transmission.katedra.kys
-    secretName: wildcard-katedra-tls
+    secretName: katedra.cc
 
 metrics:
   enabled: true

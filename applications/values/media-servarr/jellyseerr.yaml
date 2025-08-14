@@ -57,4 +57,4 @@ ingress:
   - hosts:
     - jellyseerr.katedra.cc
     - jellyseerr.katedra.kys
-    secretName: wildcard-katedra-tls
+    secretName: katedra.cc

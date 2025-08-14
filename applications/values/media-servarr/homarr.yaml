@@ -59,4 +59,10 @@ ingress:
   - hosts:
     - homarr.katedra.cc
     - homarr.katedra.kys
-    secretName: wildcard-katedra-tls
+    secretName: katedra.cc
+
+metrics:
+  enabled: true
+  app: 'homarr'
+  port:
+    number: 9702

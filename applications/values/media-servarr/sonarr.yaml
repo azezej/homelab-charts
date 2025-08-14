@@ -98,7 +98,7 @@ ingress:
   - hosts:
     - sonarr.katedra.cc
     - sonarr.katedra.kys
-    secretName: wildcard-katedra-tls
+    secretName: katedra.cc
 
 metrics:
   enabled: true

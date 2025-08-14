@@ -22,11 +22,11 @@ spec:
             enabled: true
             ingressClassName: "nginx"
             hosts:
-              - prometheus.katedra.kys
+              - prometheus.katedra.cc
             tls:
-              - secretName: wildcard-katedra-tls
+              - secretName: katedra.cc
                 hosts:
-                  - prometheus.katedra.kys
+                  - prometheus.katedra.cc
         grafana:
           enabled: true
           defaultDashboardsTimezone: "browser"
@@ -34,23 +34,23 @@ spec:
             enabled: true
             ingressClassName: "nginx"
             hosts: 
-              - grafana.katedra.kys
+              - grafana.katedra.cc
             tls:
-              - secretName: wildcard-katedra-tls
+              - secretName: katedra.cc
                 hosts:
-                  - grafana.katedra.kys
+                  - grafana.katedra.cc
         alertmanager:
           alertmanagerSpec:
-            externalUrl: https://alertmanager.katedra.kys
+            externalUrl: https://alertmanager.katedra.cc
           ingress:
             enabled: true
             ingressClassName: "nginx"
             hosts:
-              - alertmanager.katedra.kys
+              - alertmanager.katedra.cc
             tls:
-              - secretName: wildcard-katedra-tls
+              - secretName: katedra.cc
                 hosts:
-                  - alertmanager.katedra.kys
+                  - alertmanager.katedra.cc
         nodeExporter:
           enabled: true
         prometheusOperator:
