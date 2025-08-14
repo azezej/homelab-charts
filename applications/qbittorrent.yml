@@ -20,7 +20,9 @@ spec:
           config:
             enabled: true
             size: 1Gi
-            storageClass: 'nfs-sci'
+            storageClass: "nfs-csi"
+            retain: true
+            accessMode: ReadWriteOnce
         ingress:
           main:
             enabled: true
