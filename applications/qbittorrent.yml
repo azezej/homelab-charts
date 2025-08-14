@@ -26,7 +26,7 @@ spec:
             enabled: true
             className: nginx
             hosts: 
-              - qbittorrent.katedra.cc
+              - host: qbittorrent.katedra.cc
                 paths:
                   - path: /
             tls:
