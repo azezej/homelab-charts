@@ -4,10 +4,10 @@ metadata:
   name: jellyfin-config
 spec:
   capacity:
-    storage: 1Gi
+    storage: 512Mi
   accessModes:
   - ReadWriteOnce
-  storageClassName: jellyfin-storage
+  storageClassName: jellyfin-sc
   local:
     path: /mnt/data/jellyfin-config
   nodeAffinity:
@@ -24,15 +24,84 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: jellyfin-media
+  name: jellyfin-ebooks
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: jellyfin-sc
+  local:
+    path: /mnt/data/jellyfin-ebooks
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - k8s-worker-afrodyta-3.katedra.kys
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: jellyfin-film
 spec:
   capacity:
     storage: 100Gi
   accessModes:
   - ReadWriteOnce
-  storageClassName: jellyfin-storage
+  storageClassName: jellyfin-sc
   local:
-    path: /mnt/data/jellyfin-media
+    path: /mnt/data/jellyfin-film
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - k8s-worker-afrodyta-3.katedra.kys
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: jellyfin-music
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: jellyfin-sc
+  local:
+    path: /mnt/data/jellyfin-music
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - k8s-worker-afrodyta-3.katedra.kys
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: jellyfin-television
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: jellyfin-sc
+  local:
+    path: /mnt/data/jellyfin-television
   nodeAffinity:
     required:
       nodeSelectorTerms:

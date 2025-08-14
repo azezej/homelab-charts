@@ -87,7 +87,7 @@ persistentVolumeClaims:
     selector: {}
   jellyfin-film:
     accessMode: 'ReadWriteOnce'
-    requestStorage: '20Gi'
+    requestStorage: '100Gi'
     storageClassName: 'jellyfin-sc'
     selector: {}
   jellyfin-music:

@@ -1,5 +1,4 @@
 ---
 resources:
-  - pv.yaml
-  - pvc.yaml
-  - sc.yaml
+- pv.yaml
+- sc.yaml
