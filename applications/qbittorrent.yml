@@ -44,7 +44,6 @@ spec:
                 paths:
                   - path: /
                     pathType: Prefix
-                    port: http 
             tls:
               - secretName: katedra.cc
                 hosts:
