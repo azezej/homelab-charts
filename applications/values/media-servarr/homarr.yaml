@@ -16,7 +16,9 @@ deployment:
   container:
     image:
       repository: 'ghcr.io/homarr-labs/homarr'
-
+    env:
+    - name: 'SECRET_ENCRYPTION_KEY'
+      value: '2bdf3fbc1c99ce0934cb2689df90cc8725515347e647a507b463a6feefd1ca1d'
     # Additional volumeMounts on the output Deployment definition.
     volumeMounts:
     - name: 'app-data-configs'
