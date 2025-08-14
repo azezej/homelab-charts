@@ -55,7 +55,6 @@ deployment:
       value: '1000'
     - name: 'PUID'
       value: '1000'
-
     # Additional volumeMounts on the output Deployment definition.
     volumeMounts:
     - name: 'config'
@@ -70,20 +69,29 @@ deployment:
       persistentVolumeClaim:
         claimName: 'sonarr-config'
     downloads:
+      persistentVolumeClaim:
+        claimName: 'sonarr-downloads'
     tv:
-
+      persistentVolumeClaim:
+        claimName: 'sonarr-tv'
 
 persistentVolumeClaims:
   sonarr-config:
     accessMode: 'ReadWriteOnce'
     requestStorage: '1Gi'
     selector: {}
+  sonarr-downloads:
+    accessMode: 'ReadWriteOnce'
+    requestStorage: '10Gi'
+  sonarr-tv:
+    accessMode: 'ReadWriteOnce'
+    requestStorage: '1Gi'
 
 ingress:
   enabled: true
 
 metrics:
-  enabled: false
+  enabled: true
   app: 'sonarr'
   port:
     number: 9706

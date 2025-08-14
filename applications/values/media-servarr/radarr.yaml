@@ -54,7 +54,6 @@ deployment:
       value: '1000'
     - name: 'PUID'
       value: '1000'
-
     # Additional volumeMounts on the output Deployment definition.
     volumeMounts:
     - name: 'config'
@@ -69,20 +68,29 @@ deployment:
       persistentVolumeClaim:
         claimName: 'radarr-config'
     downloads:
+      persistentVolumeClaim:
+        claimName: 'radarr-downloads'
     film:
-
+      persistentVolumeClaim:
+        claimName: 'radarr-film'
 
 persistentVolumeClaims:
   radarr-config:
     accessMode: 'ReadWriteOnce'
     requestStorage: '1Gi'
     selector: {}
+  radarr-downloads:
+    accessMode: 'ReadWriteOnce'
+    requestStorage: '10Gi'
+  radarr-film:
+    accessMode: 'ReadWriteOnce'
+    requestStorage: '1Gi'
 
 ingress:
   enabled: true
 
 metrics:
-  enabled: false
+  enabled: true
   app: 'radarr'
   port:
     number: 9704

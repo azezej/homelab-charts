@@ -23,20 +23,17 @@ application:
         <EnableRemoteAccess>true</EnableRemoteAccess>
       </NetworkConfiguration>
     mountPath: '/config/config/network.xml'
-  # System Options
-  # - filename: 'system.xml'
-  #   contents: |
-  #     <?xml version="1.0" encoding="utf-8"?>
-  #     <ServerConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  #       <EnableMetrics>true</EnableMetrics>
-  #       <PreferredMetadataLanguage>en</PreferredMetadataLanguage>
-  #       <MetadataCountryCode>GB</MetadataCountryCode>
-  #       <UICulture>en-GB</UICulture>
-  #       <!-- Change me to false to run the setup wizard, but make sure you keep it true!! -->
-  #       <IsStartupWizardCompleted>true</IsStartupWizardCompleted>
-  #     </ServerConfiguration>
-  #   mountPath: '/config/config/system.xml'
-
+  - filename: 'system.xml'
+    contents: |
+      <?xml version="1.0" encoding="utf-8"?>
+      <ServerConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <EnableMetrics>true</EnableMetrics>
+        <PreferredMetadataLanguage>en</PreferredMetadataLanguage>
+        <MetadataCountryCode>GB</MetadataCountryCode>
+        <UICulture>en-GB</UICulture>
+        <IsStartupWizardCompleted>true</IsStartupWizardCompleted>
+      </ServerConfiguration>
+    mountPath: '/config/config/system.xml'
   #
   # Resource - DEPLOYMENT
   # This is to set up and define the application deployment
@@ -64,16 +61,36 @@ deployment:
       persistentVolumeClaim:
         claimName: 'jellyfin-config'
     ebooks:
+      persistentVolumeClaim:
+        claimName: 'jellyfin-ebooks'
     film:
+      persistentVolumeClaim:
+        claimName: 'jellyfin-film'
     music:
+      persistentVolumeClaim:
+        claimName: 'jellyfin-music'
     television:
-
+      persistentVolumeClaim:
+        claimName: 'jellyfin-television'
 
 persistentVolumeClaims:
   jellyfin-config:
     accessMode: 'ReadWriteOnce'
-    requestStorage: '1Gi'
+    requestStorage: '512Mi'
     selector: {}
+  jellyfin-ebooks:
+    accessMode: 'ReadWriteOnce'
+    requestStorage: '10Gi'
+    selector: {}
+  jellyfin-film:
+    accessMode: 'ReadWriteOnce'
+    requestStorage: '20Gi'
+  jellyfin-music:
+    accessMode: 'ReadWriteOnce'
+    requestStorage: '1Gi'
+  jellyfin-television:
+    accessMode: 'ReadWriteOnce'
+    requestStorage: '1Gi'
 
 ingress:
   enabled: true

@@ -69,20 +69,29 @@ deployment:
       persistentVolumeClaim:
         claimName: 'lidarr-config'
     downloads:
+      persistentVolumeClaim:
+        claimName: 'lidarr-downloads'
     music:
-
+      persistentVolumeClaim:
+        claimName: 'lidarr-music'
 
 persistentVolumeClaims:
   lidarr-config:
     accessMode: 'ReadWriteOnce'
     requestStorage: '1Gi'
     selector: {}
+  lidarr-downloads:
+    accessMode: 'ReadWriteOnce'
+    requestStorage: '10Gi'
+  lidarr-music:
+    accessMode: 'ReadWriteOnce'
+    requestStorage: '1Gi'
 
 ingress:
   enabled: true
 
 metrics:
-  enabled: false
+  enabled: true
   app: 'lidarr'
   port:
     number: 9702
