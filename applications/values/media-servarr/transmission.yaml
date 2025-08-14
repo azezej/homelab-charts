@@ -153,6 +153,8 @@ deployment:
       mountPath: '/config'
     - name: 'downloads'
       mountPath: '/downloads'
+    - name: 'watch'
+      mountPath: '/watch'
 
   volumes:
     config:
@@ -161,6 +163,9 @@ deployment:
     downloads:
       persistentVolumeClaim:
         claimName: 'transmission-downloads'
+    watch:
+      persistentVolumeClaim:
+        claimName: 'transmission-watch'
 
 persistentVolumeClaims:
   transmission-config:
@@ -170,6 +175,10 @@ persistentVolumeClaims:
   transmission-downloads:
     accessMode: 'ReadWriteOnce'
     requestStorage: '10Gi'
+    selector: {}
+  transmission-watch:
+    accessMode: 'ReadWriteOnce'
+    requestStorage: '1Gi'
     selector: {}
 
 service:
